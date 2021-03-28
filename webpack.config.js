@@ -4,19 +4,19 @@ const { ProvidePlugin, HotModuleReplacementPlugin } = require("webpack");
 
 module.exports = {
   entry: {
-    index: "./src/index.js",
+    index: "./src/index.tsx",
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.tsx?$/,
+        use: "ts-loader",
         exclude: /node_modules/,
-        use: ["babel-loader"],
       },
     ],
   },
   resolve: {
-    extensions: ["*", ".js", ".jsx"],
+    extensions: ["*", ".tsx", ".ts", ".js", ".jsx"],
   },
   mode: "development",
   devtool: "inline-source-map",
